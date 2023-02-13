@@ -5,8 +5,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-#footer a{
-    text-decoration: none;
+#footer a, a{
+    text-decoration: none !important;
     color:#393939;
 }
 
@@ -26,4 +26,30 @@
     background-color: #bedbe3;
     border-radius: 0;
     border: 0;
+}
+
+#products .card-footer{
+    background-color: transparent !important;
+}
+
+#products .card{
+    border:0px;
+}
+
+#products h2, .col-3{
+    font-size:18px;
+    font-weight: 600;
+}
+
+.boldText{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#info .border{
+    border:1px #393939 solid !important;
+}
+
+#info .bi{
+    font-size: 50px;
 }
