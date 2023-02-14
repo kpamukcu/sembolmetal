@@ -69,12 +69,12 @@
         <div class="row my-5">
             <div class="col-md-3">
                 <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
+                    <a href="urun.php"><img src="img/demo1.webp" alt="" class="img-fluid"></a>
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
+                                <h2><a href="urun.php">Ürün Adı</a></h2>
+                                <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
                                 XX ₺
@@ -205,7 +205,7 @@
 <!-- Info Section Start -->
 <section id="info" class="py-11 text-center">
     <div class="container">
-        <div class="row border p-5">
+        <div class="row border py-4 px-5">
             <div class="col-md-4">
                 <i class="bi bi-patch-check"></i> <br>
                 <span class="boldText">Kaliteli Hammade</span><br>

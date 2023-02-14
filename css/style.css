@@ -25,18 +25,17 @@
 #categories .card{
     background-color: #bedbe3;
     border-radius: 0;
-    border: 0;
 }
 
-#products .card-footer{
+.card-footer{
     background-color: transparent !important;
 }
 
-#products .card{
+.card{
     border:0px;
 }
 
-#products h2, .col-3{
+.card h2, .col-3{
     font-size:18px;
     font-weight: 600;
 }
@@ -52,4 +51,8 @@
 
 #info .bi{
     font-size: 50px;
+}
+
+.carousel-indicators{
+    bottom:-120px;
 }
