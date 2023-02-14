@@ -49,11 +49,17 @@
                 <li class="nav-item">
                   <a class="nav-link" href="referanslar.php">Referanslar</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="projeler.php">Projeler</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Projeler
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="projeler.php">Kurumsal Projeler</a>
+                    <a class="dropdown-item" href="projeler.php">Ev Projeleri</a>
+                  </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="blog.php">Projeler</a>
+                  <a class="nav-link" href="blog.php">Blog</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="iletisim.php">İletişim</a>
