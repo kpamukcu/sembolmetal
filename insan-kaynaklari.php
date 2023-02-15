@@ -44,7 +44,7 @@
                                 <textarea name="mesaj" id="mesaj" rows="8" class="form-control"></textarea>
                             </div>
                             <div class="form-group col-md-12">
-                                <input type="submit" class="btn btn-dark w-100 form-control" value="Gönder">
+                                <input type="submit" class="btn btn-dark w-100" value="Gönder">
                             </div>
                     </div>
                 </form>
