@@ -56,6 +56,10 @@
 .carousel-indicators{
     bottom:-120px;
 }
+hr{
+    background-color: black;
+    height: 0.5px;
+}
 
 
 

@@ -1,5 +1,15 @@
 <?php require_once('header.php') ?>
 
+<section id="kvkkBanner" class="py-11" style="background-color: #e7e1d8;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4">Kurumsal / K.V.K.K</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="kvkk" class="py-5">
     <div class="container">
         <div class="row">
@@ -62,9 +72,9 @@
 
                     Ziyaretçiler, Platform’u görüntüledikleri tarayıcı ayarlarını değiştirerek çerezlere ilişkin tercihlerini kişiselleştirme imkanına sahiptir. Eğer kullanılmakta olan tarayıcı bu imkânı sunmaktaysa, tarayıcı ayarları üzerinden çerezlere ilişkin tercihleri değiştirmek mümkündür. Böylelikle, tarayıcının sunmuş olduğu imkânlara göre farklılık gösterebilmekle birlikte, veri sahiplerinin çerezlerin kullanılmasını engelleme, çerez kullanılmadan önce uyarı almayı tercih etme veya sadece bazı çerezleri devre bırakma ya da silme imkanları bulunmaktadır.
                     Bu konudaki tercihler kullanılan tarayıcıya göre değişiklik göstermekle birlikte genel açıklamaya <a href="https://www.aboutcookies.org/">https://www.aboutcookies.org/</a> adresinden ulaşmak mümkündür. Çerezlere ilişkin tercihlerin, ziyaretçinin Platform’a erişim sağladığı her bir cihaz özelinde ayrı ayrı yapılması gerekebilecektir.
-                    Google Analytics tarafından yönetilen çerezleri kapatmak için <a href="https://tools.google.com/dlpage/gaoptout">tıklayınız.</a> 
-                    Google tarafından sağlanan kişiselleştirilmiş reklam deneyimini yönetmek için <a href="https://support.google.com/adspolicy/answer/143465?hl=tr">tıklayınız.</a> 
-                    Birçok firmanın reklam faaliyetleri için kullandığı çerezler bakımından tercihler Your Online Choices üzerinden yönetilebilir.
+                    Google Analytics tarafından yönetilen çerezleri kapatmak için <a href="https://tools.google.com/dlpage/gaoptout">tıklayınız.</a>
+                    Google tarafından sağlanan kişiselleştirilmiş reklam deneyimini yönetmek için <a href="https://support.google.com/adspolicy/answer/143465?hl=tr">tıklayınız.</a>
+                    Birçok firmanın reklam faaliyetleri için kullandığı çerezler bakımından tercihler Your Online Choices üzerinden yönetilebilir.
                     Mobil cihazlar üzerinden çerezleri yönetmek için mobil cihaza ait ayarlar menüsü kullanılabilir.
                     Tarayıcınızın ayarlarını değiştirerek çerezlere ilişkin tercihlerinizi kişiselleştirme imkanına sahipsiniz. <br>
                     Adobe Analytics <a href="http://www.adobe.com/uk/privacy/opt-out.html">http://www.adobe.com/uk/privacy/opt-out.html</a><br>
@@ -96,7 +106,7 @@
                 <li> KVK Kanunu ve ilgili diğer kanun hükümlerine uygun olarak işlenmiş olmasına rağmen, işlenmesini gerektiren sebeplerin ortadan kalkması hâlinde kişisel verilerin silinmesini veya yok edilmesini isteme ve bu kapsamda yapılan işlemin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
                 <li> İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme,</li>
                 <li> Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme
-                haklarına sahiptir.</li>
+                    haklarına sahiptir.</li>
                 <li> Söz konusu haklarınıza ilişkin taleplerinizi, Başvuru Formu adresinde yer alan Veri Sahibi Başvuru Formu’nu doldurarak Şirketimize iletebilirsiniz. Talebinizin niteliğine göre en kısa sürede ve en geç otuz gün içinde başvurularınız ücretsiz olarak sonuçlandırılacaktır; ancak işlemin ayrıca bir maliyet gerektirmesi halinde Kişisel Verileri Koruma Kurulu tarafından belirlenecek tarifeye göre tarafınızdan ücret talep edilebilecektir.</li>
             </div>
         </div>
