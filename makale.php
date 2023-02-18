@@ -1,39 +1,40 @@
 <?php require_once('header.php') ?>
 
-<!-- Blog Banner Section Start -->
-<section id="blogBanner" class="py-11" style="background-color: #e7e1d8;">
+<!-- Makale Banner Section Start -->
+<section id="makaleBanner" class="py-11" style="background-color: #e7e1d8;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="display-4">Blog</h1>
+                <h1 class="display-4">Makale</h1>
             </div>
         </div>
     </div>
 </section>
-<!-- Blog Banner Section End -->
-<!-- Blog Section Start -->
-<section id="blog" class="py-5">
+<!-- Makale Banner Section End -->
+<!-- Makale Section Start -->
+<section id="makale" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <img src="img/blog-photos1-815x437.webp" alt="">
-                <h2 class="pt-5 text-center">İç Mekanda Koltuk Seçerken Nelere Dikkat Edilmeli </h2>
+                <img src="img/blog-photos1-815x437.webp" class="img-fluid" alt="">
+                <h2 class="py-3 text-center">İç Mekanda Koltuk Seçerken Nelere Dikkat Edilmeli </h2>
                 <hr>
                 <small>Yayın Tarihi:14/11/2022</small><br><br>
                 <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab distinctio ratione mollitia repellendus doloribus commodi! Facilis aliquid labore hic praesentium laudantium incidunt. Veritatis itaque laboriosam earum voluptas, perspiciatis sunt voluptatem nulla cum ullam distinctio commodi numquam nisi, provident sequi assumenda recusandae officiis suscipit possimus, similique eligendi? Eaque eveniet tempore obcaecati. <br> Accusantium cum nihil id exercitationem eligendi ratione facere eveniet deserunt ipsum illum voluptate amet beatae eum nesciunt doloribus officia, incidunt est culpa perferendis eius voluptas magnam iste molestiae? Eligendi quidem eius sit ullam libero consectetur incidunt et omnis numquam facere ad repellendus repudiandae maxime minus, suscipit eaque perferendis, ab voluptas, quibusdam nobis sint nesciunt. Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?<br>
-                    Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?
-                    Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?
+                Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?
+                Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?
+                Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?
+                Error aliquid eum voluptates optio delectus reprehenderit iure ipsum eos vel, minus unde est corporis ratione inventore, architecto nesciunt officia esse cupiditate tempora, doloremque velit ullam temporibus! Explicabo perferendis tenetur necessitatibus?
                 </p>
             </div>
-            <div class="col-md-3 text-left">
-                <img src="img/blog-photos2-245x177.webp" alt="">
-                <h5 class="pt-5">Şıklık ve Konfor</h5>
-                <hr>
+            <div class="col-md-3">
+                <img src="img/makalemain1-285x177.webp"  alt="">
+                <h5 class="pt-5">Popüler Yazılar</h5><hr>
                 <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, eveniet? Velit illum minima ex consequatur.</p>
-                <h5 class="pt-5">Popüler Yazılar</h5>
+                <h5 class="pt-5">Sizin İçin Seçtiklerimiz</h5>
                 <hr>
                 <a href="">
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3" >
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="img/dresuar-100x100.webp" alt="...">
@@ -48,10 +49,25 @@
                     </div>
                 </a>
                 <a href="">
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3" >
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="img/sehpe-100x100.webp" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card mb-3" >
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="img/masa-100x100.webp" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -75,7 +91,7 @@
         </div>
     </div>
 </section>
-<!-- Blog Section End -->
+<!-- Makale Section End -->
 <!-- Yorum Section Start -->
 <section id="yorum" class="py-5">
     <div class="container">

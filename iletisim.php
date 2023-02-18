@@ -1,7 +1,7 @@
 <?php require_once('header.php') ?>
 
 <!-- Banner Section Start -->
-<section class="banner py-11">
+<section class="banner py-11" style="background-color: #e7e1d8;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
