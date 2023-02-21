@@ -208,7 +208,7 @@
         <div class="row border py-4 px-5">
             <div class="col-md-4">
                 <i class="bi bi-patch-check"></i> <br>
-                <span class="boldText">Kaliteli Hammade</span><br>
+                <span class="boldText">Kaliteli Hammadde</span><br>
                 <span class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing</span>
             </div>
             <div class="col-md-4">
