@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="img/sembol-inst-hakimizda1-540x498.webp" alt="" class="img-fluid">
+                <img src="img/hakkimizda-inst7-540x498.webp" alt="" class="img-fluid">
             </div>
             <div class="col-md-6 my-auto text-justify">
                 <h2>Tarihçemiz</h2>
@@ -30,7 +30,7 @@
                 <p>Sembol Tasarım ailesi olarak üretimden, satışa kadar tüm alanda iş ahlakımızı ve dürüstlük ilkelerimizi bozmadan çalışmak. Firmamızın isminin geçtiği her alanda en iyisi olmak, en yüksek motivasyonla çalışmak ve çabalamak. Profesyonellikle huzurlu bir iş ortamı sağlayarak, takım ruhuyla çalışmak ve amaçlarına ulaşmak için her gün yeni adımlar atıyoruz.</p>
             </div>
             <div class="col-md-6">
-                <img src="img/sembol-inst-hakkimizda2-540x498.webp" alt="" class="img-fluid">
+                <img src="img/hakkimizda-inst5-540x498.webp" alt="" class="img-fluid">
             </div>
         </div>
         <div class="row">
