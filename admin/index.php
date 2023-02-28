@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +24,11 @@
     <!-- Admin Panel Login Start -->
     <section id="login">
         <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="card">
+            <div class="row" style="height:70vh;">
+                <div class="col-6 text-center mx-auto my-auto">
+                    <div class="card bg-light shadow">
                         <div class="card-body">
-                            <img src="../img/sembol-metal-logo-siyah-156x105.webp" alt="">
+                            <img src="../img/sembol-metal-logo-siyah-156x105.webp" alt="" class="mb-5">
                             <form method="post">
                                 <div class="form-group">
                                     <input type="text" name="kadi" placeholder="Kullanıcı Adınız" class="form-control">
@@ -40,6 +42,22 @@
                             </form>
                         </div>
                     </div>
+
+                    <?php
+                    if ($_POST) {
+                        $kadi = $_POST['kadi'];
+                        $sifre = $_POST['sifre'];
+
+                        if($kadi == 'smbl' && $sifre='SembolMetal2023**'){
+                            $_SESSION['kadi'] = $kadi;
+                            echo '<div class="alert alert-success">Kullanıcı Adı ve Şifreniz Doğru</div>
+                            <meta http-equiv="refresh" content="1; url=dashboard.php">';
+                        } else {
+                            echo '<div class="alert alert-danger">Kullanıcı Adı ve/veya Şifreniz Hatalı</div>';
+                        }                            
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
