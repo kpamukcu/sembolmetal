@@ -49,7 +49,7 @@
                         $sifre = $_POST['sifre'];
 
                         if($kadi == 'smbl' && $sifre='SembolMetal2023**'){
-                            $_SESSION['kadi'] = $kadi;
+                            $_SESSION['user'] = $kadi;
                             echo '<div class="alert alert-success">Kullanıcı Adı ve Şifreniz Doğru</div>
                             <meta http-equiv="refresh" content="1; url=dashboard.php">';
                         } else {

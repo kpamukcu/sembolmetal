@@ -10,6 +10,11 @@
     color:#393939;
 }
 
+#admin a{
+    text-decoration: none !important;
+    color: #fff !important;
+}
+
 #footer .bi, #contactInfo .bi{
     font-size:28px;
 }
