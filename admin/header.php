@@ -57,6 +57,12 @@ if (!isset($_SESSION['user'])) {
                         <a href="kategoriler.php">
                             <li class="list-group-item bg-transparent border-0">Kategoriler</li>
                         </a>
+                        <a href="urunler.php">
+                            <li class="list-group-item bg-transparent border-0">Ürünler</li>
+                        </a>
+                        <a href="maliyet.php">
+                            <li class="list-group-item bg-transparent border-0">Maliyet Hesaplama</li>
+                        </a>
                     </ul>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 py-5">

@@ -1,4 +1,11 @@
-<?php require_once('header.php'); ?>
+<?php
+require_once('header.php');
+
+$id = $_GET['id'];
+$katduzenle = $db->prepare('select * from kategoriler where id=?');
+$katduzenle->execute(array($id));
+$katduzenleSatir = $katduzenle->fetch();
+?>
 
 <section id="kategoriler">
     <div class="container">
@@ -7,18 +14,18 @@
                 <h5>Kategori Ekle</h5>
                 <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <input type="text" name="katadi" placeholder="Kategori Adı Girin" class="form-control">
+                        <input type="text" name="katadi" value="<?php echo $katduzenleSatir['katadi']; ?>" class="form-control">
                     </div>
                     <div class="form-group">
                         <select name="katturu" class="form-control">
-                            <option value="">Kategori Türü Seçin</option>
+                            <option value="<?php echo $katduzenleSatir['katturu']; ?>"><?php echo $katduzenleSatir['katturu']; ?></option>
                             <option value="Ana Kategori">Ana Kategori</option>
                             <option value="Alt Kategori">Alt Kategori</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <select name="ustkatturu" class="form-control">
-                            <option value="">Üst Kategorisini Seçin</option>
+                            <option value="<?php echo $katduzenleSatir['ustkatturu']; ?>"><?php echo $katduzenleSatir['ustkatturu']; ?></option>
                             <?php
                             $ustkatlist = $db->prepare('select * from kategoriler order by katadi');
                             $ustkatlist->execute();
@@ -34,18 +41,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea name="kataciklama" placeholder="Max. 160 Karakter Kategori Açıklaması Girin." rows="5" class="form-control"></textarea>
+                        <textarea name="kataciklama" rows="5" class="form-control"><?php echo $katduzenleSatir['kataciklama']; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="gorsel">Kategori Görseli Seçin</label><br>
-                        <input type="file" name="gorsel" id="gorsel">
+                        <img src="<?php echo $katduzenleSatir['gorsel']; ?>" width="20%"> <br><br>
+                        <input type="file" name="gorsel" id="gorsel" required>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Kaydet" class="w-100 btn btn-success" name="katkaydet">
                     </div>
                 </form>
-
                 <?php
+
                 if ($_POST) {
                     $katadi = $_POST['katadi'];
                     $katturu = $_POST['katturu'];
@@ -54,18 +61,13 @@
                     $gorsel = '../img/' . $_FILES['gorsel']['name'];
 
                     if (move_uploaded_file($_FILES['gorsel']['tmp_name'], $gorsel)) {
+                        $katUpdate = $db->prepare('update kategoriler set katadi=?,katturu=?,ustkatturu=?,kataciklama=?,gorsel=? where id=?');
+                        $katUpdate->execute(array($katadi, $katturu, $ustkatturu, $kataciklama, $gorsel, $id));
 
-                        if($ustkatturu == ''){
-                            $ustkatturu = '-';
-                        }
-
-                        $katkaydet = $db->prepare('insert into kategoriler(katadi,katturu,ustkatturu,kataciklama,gorsel) values(?,?,?,?,?)');
-                        $katkaydet->execute(array($katadi, $katturu, $ustkatturu, $kataciklama, $gorsel));
-
-                        if ($katkaydet->rowCount()) {
-                            echo '<div class="alert alert-success">Kayıt Başarılı</div>';
+                        if ($katUpdate->rowCount()) {
+                            echo '<div class="alert alert-success text-center">Kayıt Güncellendi</div><meta http-equiv="refresh" content="1; url=kategoriler.php">';
                         } else {
-                            echo '<div class="alert alert-danger">Hata Oluştu</div>';
+                            echo '<div class="alert alert-danger text-center">Hata Oluştu</div>';
                         }
                     }
                 }
@@ -83,8 +85,6 @@
                             <th>Türü</th>
                             <th>Üst Kategorisi</th>
                             <th>Açıklama</th>
-                            <th>Düzenle</th>
-                            <th>Sil</th>
                         </tr>
                     </thead>
 
@@ -101,9 +101,7 @@
                                     <td><?php echo $katlistSatir['katadi']; ?></td>
                                     <td><?php echo $katlistSatir['katturu']; ?></td>
                                     <td><?php echo $katlistSatir['ustkatturu']; ?></td>
-                                    <td><?php echo $katlistSatir['kataciklama']; ?></td>
-                                    <td class="text-center"><a href="kategoriduzenle.php?id=<?php echo $katlistSatir['id']; ?>"><i class="bi bi-pencil-square text-warning"></i></a></td>
-                                    <td class="text-center"><a href="kategorisil.php?id=<?php echo $katlistSatir['id']; ?>" class="text-danger"><i class="bi bi-trash3-fill text-danger"></i></a></td>
+                                    <td><?php echo $katlistSatir['kataciklama']; ?></td>                                    
                                 </tr>
                         <?php
                             }

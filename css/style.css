@@ -12,7 +12,7 @@
 
 #admin a{
     text-decoration: none !important;
-    color: #fff !important;
+    color: #fff;
 }
 
 #footer .bi, #contactInfo .bi{
@@ -62,7 +62,13 @@
     bottom:-120px;
 }
 
+td{
+    vertical-align: middle !important;
+}
     
+#admin .bi{
+    font-size:20px;
+}
 
 
 
