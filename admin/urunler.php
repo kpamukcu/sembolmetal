@@ -143,8 +143,16 @@ $maliyetSatir = $maliyet->fetch();
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <div class="row">
+                                <div class="col-md-6 my-auto">
+                                    Güncel Maliyet: <?php echo $maliyetSatir['topmaliyet']; ?> ₺
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
