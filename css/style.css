@@ -10,6 +10,11 @@
     color:#393939;
 }
 
+#admin a{
+    text-decoration: none !important;
+    color: #fff;
+}
+
 #footer .bi, #contactInfo .bi{
     font-size:28px;
 }
@@ -57,7 +62,18 @@
     bottom:-120px;
 }
 
+td{
+    vertical-align: middle !important;
+}
     
+#admin .bi{
+    font-size:20px;
+}
+
+#productList .modal-footer{
+    display: block;
+    justify-content: none;
+}
 
 
 
