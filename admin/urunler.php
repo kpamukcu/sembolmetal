@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 require_once('header.php');
 
 $maliyet = $db->prepare('select * from maliyet');
@@ -90,7 +91,7 @@ $maliyetSatir = $maliyet->fetch();
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ürün Özellikleri</label>
-                                        <textarea name="aciklama" rows="7" class="form-control"></textarea>
+                                        <textarea name="ozellikler" rows="7" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -140,7 +141,7 @@ $maliyetSatir = $maliyet->fetch();
                                         </select>
                                     </div>
                                 </div>
-                            </form>
+
                         </div>
                         <div class="modal-footer">
                             <div class="row">
@@ -149,11 +150,44 @@ $maliyetSatir = $maliyet->fetch();
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <input type="reset" value="Temizle" class="btn btn-warning">
+                                    <input type="submit" value="Kaydet" class="btn btn-success" name="urunkaydet">
                                 </div>
                             </div>
                         </div>
+                        </form>
+                        <?php
+                        if (isset($_POST['urunkaydet'])) {
+                            $gorsel1 = '../img/' . $_FILES['gorsel1']['name'];
+                            $gorsel2 = '../img/' . $_FILES['gorsel2']['name'];
+                            $gorsel3 = '../img/' . $_FILES['gorsel3']['name'];
+                            $gorsel4 = '../img/' . $_FILES['gorsel4']['name'];
+                            $urunadi = $_POST['urunadi'];
+                            $genislik = $_POST['genislik'];
+                            $derinlik = $_POST['derinlik'];
+                            $yukseklik = $_POST['yukseklik'];
+                            $aciklama = $_POST['aciklama'];
+                            $ozellikler = $_POST['ozellikler'];
+                            $bazfiyat = $_POST['bazfiyat'];
+                            $fiyat = $bazfiyat + $maliyetSatir['topmaliyet'];
+                            $stokkodu = $_POST['stokkodu'];
+                            $kategori = $_POST['kategori'];
+                            $stok = $_POST['stokadet'];
+                            $durum = $_POST['durum'];
+
+                            if (move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1) || move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2) || move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3) || move_uploaded_file($_FILES['gorsel4']['tmp_name'], $gorsel4)) {
+
+                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,genislik,derinlik,yukseklik,aciklama,ozellikler,bazfiyat,fiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $bazfiyat, $fiyat, $stokkodu, $kategori, $stok, $durum));
+
+                                if ($urunKaydet->rowCount()) {
+                                    echo '<div class="alert alert-success">Kayıt Başarılı</div>';
+                                } else {
+                                    echo '<div class="alert alert-danger">Hata Oluştu</div>';
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -161,7 +195,7 @@ $maliyetSatir = $maliyet->fetch();
         <div class="row mt-4">
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>ID</th>
                         <th>Ürün Adı</th>
                         <th>Stok Kodu</th>
@@ -175,6 +209,34 @@ $maliyetSatir = $maliyet->fetch();
                         <th>Sil</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php
+
+                    $urunList = $db->prepare('select * from urunler order by id desc');
+                    $urunList->execute();
+
+                    if ($urunList->rowCount()) {
+                        foreach ($urunList as $urunListSatir) {
+                    ?>
+                            <tr class="text-center">
+                                <td><?php echo $urunListSatir['id']; ?></td>
+                                <td><?php echo $urunListSatir['urunadi']; ?></td>
+                                <td><?php echo $urunListSatir['stokkodu']; ?></td>
+                                <td class="text-center"><?php echo $urunListSatir['stok']; ?></td>
+                                <td><?php echo $urunListSatir['genislik'].'x'.$urunListSatir['derinlik'].'x'.$urunListSatir['yukseklik'] ; ?></td>
+                                <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?>₺</td>
+                                <td class="text-center"><?php echo $urunListSatir['fiyat']; ?>₺</td>
+                                <td><?php echo $urunListSatir['kategori']; ?></td>
+                                <td><?php echo $urunListSatir['durum']; ?></td>
+                                <td><i class="bi bi-pencil-square text-warning"></i></td>
+                                <td><i class="bi bi-trash3-fill text-danger"></i></td>
+                            </tr>
+                    <?php
+                        }
+                    }
+
+                    ?>
+                </tbody>
             </table>
         </div>
     </div>
