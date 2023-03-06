@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+
 require_once('header.php');
 
 $maliyet = $db->prepare('select * from maliyet');
@@ -169,7 +168,6 @@ $maliyetSatir = $maliyet->fetch();
                             $aciklama = $_POST['aciklama'];
                             $ozellikler = $_POST['ozellikler'];
                             $bazfiyat = $_POST['bazfiyat'];
-                            $fiyat = $bazfiyat + $maliyetSatir['topmaliyet'];
                             $stokkodu = $_POST['stokkodu'];
                             $kategori = $_POST['kategori'];
                             $stok = $_POST['stokadet'];
@@ -177,8 +175,8 @@ $maliyetSatir = $maliyet->fetch();
 
                             if (move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1) || move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2) || move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3) || move_uploaded_file($_FILES['gorsel4']['tmp_name'], $gorsel4)) {
 
-                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,genislik,derinlik,yukseklik,aciklama,ozellikler,bazfiyat,fiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $bazfiyat, $fiyat, $stokkodu, $kategori, $stok, $durum));
+                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,genislik,derinlik,yukseklik,aciklama,ozellikler,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $bazfiyat, $stokkodu, $kategori, $stok, $durum));
 
                                 if ($urunKaydet->rowCount()) {
                                     echo '<div class="alert alert-success">Kayıt Başarılı</div>';
@@ -225,7 +223,7 @@ $maliyetSatir = $maliyet->fetch();
                                 <td class="text-center"><?php echo $urunListSatir['stok']; ?></td>
                                 <td><?php echo $urunListSatir['genislik'].'x'.$urunListSatir['derinlik'].'x'.$urunListSatir['yukseklik'] ; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?>₺</td>
-                                <td class="text-center"><?php echo $urunListSatir['fiyat']; ?>₺</td>
+                                <td class="text-center"><?php echo $urunListSatir['bazfiyat']+$maliyetSatir['topmaliyet']; ?>₺</td>
                                 <td><?php echo $urunListSatir['kategori']; ?></td>
                                 <td><?php echo $urunListSatir['durum']; ?></td>
                                 <td><i class="bi bi-pencil-square text-warning"></i></td>
