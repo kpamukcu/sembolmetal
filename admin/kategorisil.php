@@ -8,7 +8,7 @@ $katSil -> execute(array($id));
 if($katSil -> rowCount()){
     echo '<div class="alert alert-success text-center">Kayıt Silinmiştir</div> <meta http-equiv="refresh" content="2; url=kategoriler.php">';
 } else {
-    echo '<div class="alert alert-danger text-center">Kayıt Silinmiştir</div>';
+    echo '<div class="alert alert-danger text-center">Hata Oluştu</div>';
 }
 
 require_once('footer.php');

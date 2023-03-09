@@ -209,7 +209,6 @@ $maliyetSatir = $maliyet->fetch();
                 </thead>
                 <tbody>
                     <?php
-
                     $urunList = $db->prepare('select * from urunler order by id desc');
                     $urunList->execute();
 
@@ -221,18 +220,17 @@ $maliyetSatir = $maliyet->fetch();
                                 <td><?php echo $urunListSatir['urunadi']; ?></td>
                                 <td><?php echo $urunListSatir['stokkodu']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['stok']; ?></td>
-                                <td><?php echo $urunListSatir['genislik'].'x'.$urunListSatir['derinlik'].'x'.$urunListSatir['yukseklik'] ; ?></td>
+                                <td><?php echo $urunListSatir['genislik'] . 'x' . $urunListSatir['derinlik'] . 'x' . $urunListSatir['yukseklik']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?>₺</td>
-                                <td class="text-center"><?php echo $urunListSatir['bazfiyat']+$maliyetSatir['topmaliyet']; ?>₺</td>
+                                <td class="text-center"><?php echo $urunListSatir['bazfiyat'] + $maliyetSatir['topmaliyet']; ?>₺</td>
                                 <td><?php echo $urunListSatir['kategori']; ?></td>
                                 <td><?php echo $urunListSatir['durum']; ?></td>
-                                <td><i class="bi bi-pencil-square text-warning"></i></td>
-                                <td><i class="bi bi-trash3-fill text-danger"></i></td>
+                                <td><a href="urunguncelle.php?id=<?php echo $urunListSatir['id']; ?>"><i class="bi bi-pencil-square text-warning"></i></a></td>
+                                <td><a href="urunsil.php?id=<?php echo $urunListSatir['id']; ?>"><i class="bi bi-trash3-fill text-danger"></i></a></td>
                             </tr>
                     <?php
                         }
                     }
-
                     ?>
                 </tbody>
             </table>
@@ -240,6 +238,5 @@ $maliyetSatir = $maliyet->fetch();
     </div>
 </section>
 <!-- Product List Section End -->
-
 
 <?php require_once('footer.php'); ?>
