@@ -142,24 +142,28 @@ if ($_GET) {
                 $gorsel1 = $urunListSatir['gorsel1'];
             } else {
                 $gorsel1 = '../img/' . $_FILES['gorsel1']['name'];
+                $foto1 = move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1);
             }
 
             if (!isset($_FILES['gorsel2']['name'])) {
                 $gorsel2 = $urunListSatir['gorsel2'];
             } else {
                 $gorsel2 = '../img/' . $_FILES['gorsel2']['name'];
+                $foto2 = move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2);
             }
 
             if (!isset($_FILES['gorsel3']['name'])) {
                 $gorsel3 = $urunListSatir['gorsel3'];
             } else {
                 $gorsel3 = '../img/' . $_FILES['gorsel3']['name'];
+                $foto3 = move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3);
             }
 
             if (!isset($_FILES['gorsel4']['name'])) {
                 $gorsel4 = $urunListSatir['gorsel4'];
             } else {
                 $gorsel4 = '../img/' . $_FILES['gorsel4']['name'];
+                $foto4 = move_uploaded_file($_FILES['gorsel4']['tmp_name'],$gorsel4);
             }
 
             $urunadi = $_POST['urunadi'];
@@ -174,7 +178,7 @@ if ($_GET) {
             $stokadet = $_POST['stokadet'];
             $durum = $_POST['durum'];
 
-            if (move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1) || move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2) || move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3) || move_uploaded_file($_FILES['gorsel4']['tmp_name'],$gorsel4)) {
+            if (isset($foto1) || isset($foto2) || isset($foto3) || isset($foto4)) {
                 $urunGuncelle = $db->prepare('update urunler set gorsel1=?, gorsel2=?, gorsel3=?, gorsel4=?, urunadi=?, genislik=?, derinlik=?, yukseklik=?, aciklama=?, ozellikler=?, bazfiyat=?, stokkodu=?, kategori=?, stok=?, durum=? where id=?');
                 $urunGuncelle->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $bazfiyat, $stokkodu, $kategori, $stokadet, $durum, $id));
 

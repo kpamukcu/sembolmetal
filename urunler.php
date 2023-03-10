@@ -1,4 +1,10 @@
-<?php require_once('header.php') ?>
+<?php
+require_once('header.php');
+
+$maliyet = $db -> prepare('select * from maliyet');
+$maliyet -> execute();
+$maliyetSatir = $maliyet -> fetch();
+?>
 
 <!-- Banner Section Start -->
 <section class="banner py-11" style="background-color: #e7e1d8;">
@@ -67,138 +73,35 @@
             </div>
         </div>
         <div class="row my-5">
-            <div class="col-md-3">
-                <div class="card">
-                    <a href="urun.php"><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="urun.php">Ürün Adı</a></h2>
-                                <small><a href="kategori.php">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
+
+            <?php
+            $urunList = $db->prepare('select * from urunler order by id limit 8');
+            $urunList->execute();
+
+            if ($urunList->rowCount()) {
+                foreach ($urunList as $urunListSatir) {
+            ?>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <a href="urun.php?id=<?php echo $urunListSatir['id']; ?>"><img src="<?php echo substr($urunListSatir['gorsel1'], 3) ?>" alt="" class="img-fluid"></a>
+                            <div class="card-footer border-0">
+                                <div class="row">
+                                    <div class="col-9 px-0">
+                                        <h2><a href="urun.php?id=<?php echo $urunListSatir['id']; ?>"><?php echo $urunListSatir['urunadi']; ?></a></h2>
+                                        <small><a href="kategori.php?kat=<?php echo $urunListSatir['kategori']; ?>"><?php echo $urunListSatir['kategori']; ?></a></small>
+                                    </div>
+                                    <div class="col-3 text-right px-0">
+                                        <?php echo $urunListSatir['bazfiyat']+$maliyetSatir['topmaliyet']; ?> ₺
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+                }
+            }
+            ?>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <a href=""><img src="img/demo1.webp" alt="" class="img-fluid"></a>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-9 px-0">
-                                <h2><a href="">Ürün Adı</a></h2>
-                                <small><a href="">Kategori Adı</a></small>
-                            </div>
-                            <div class="col-3 text-right px-0">
-                                XX ₺
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <!-- Products Section End -->
 

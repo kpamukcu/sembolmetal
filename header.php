@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('baglan.php');
+?>
+
 <!doctype html>
 <html lang="tr">
 

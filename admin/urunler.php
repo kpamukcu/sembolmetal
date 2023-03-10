@@ -84,13 +84,96 @@ $maliyetSatir = $maliyet->fetch();
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ürün Açıklaması</label>
-                                        <textarea name="aciklama" rows="7" class="form-control"></textarea>
+                                        <textarea name="aciklama"></textarea>
+                                        <script>
+                                            CKEDITOR.replace('aciklama');
+                                        </script>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ürün Özellikleri</label>
-                                        <textarea name="ozellikler" rows="7" class="form-control"></textarea>
+                                        <textarea name="ozellikler"></textarea>
+                                        <script>
+                                            CKEDITOR.replace('ozellikler');
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Ürün Kısa Açıklaması</label>
+                                        <textarea name="kisaaciklama"></textarea>
+                                        <script>
+                                            CKEDITOR.replace('kisaaciklama');
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>İlgili Ürün 1</label>
+                                        <select name="ilgiliurun1" class="form-control">
+                                            <option value="">İlgili Ürün Seçiniz</option>
+                                            <?php
+                                            $kayitliUrun1 = $db->prepare('select * from urunler order by urunadi asc');
+                                            $kayitliUrun1->execute();
+                                            foreach ($kayitliUrun1 as $kayitliUrunSatir1) {
+                                            ?>
+                                                <option value="<?php echo $kayitliUrunSatir1['urunadi']; ?>"><?php echo $kayitliUrunSatir1['urunadi']; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>İlgili Ürün 2</label>
+                                        <select name="ilgiliurun2" class="form-control">
+                                            <option value="">İlgili Ürün Seçiniz</option>
+                                            <?php
+                                            $kayitliUrun2 = $db->prepare('select * from urunler order by urunadi asc');
+                                            $kayitliUrun2->execute();
+                                            foreach ($kayitliUrun2 as $kayitliUrunSatir2) {
+                                            ?>
+                                                <option value="<?php echo $kayitliUrunSatir2['urunadi']; ?>"><?php echo $kayitliUrunSatir2['urunadi']; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>İlgili Ürün 3</label>
+                                        <select name="ilgiliurun3" class="form-control">
+                                            <option value="">İlgili Ürün Seçiniz</option>
+                                            <?php
+                                            $kayitliUrun3 = $db->prepare('select * from urunler order by urunadi asc');
+                                            $kayitliUrun3->execute();
+                                            foreach ($kayitliUrun3 as $kayitliUrunSatir3) {
+                                            ?>
+                                                <option value="<?php echo $kayitliUrunSatir3['urunadi']; ?>"><?php echo $kayitliUrunSatir3['urunadi']; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>İlgili Ürün 4</label>
+                                        <select name="ilgiliurun4" class="form-control">
+                                            <option value="">İlgili Ürün Seçiniz</option>
+                                            <?php
+                                            $kayitliUrun4 = $db->prepare('select * from urunler order by urunadi asc');
+                                            $kayitliUrun4->execute();
+                                            foreach ($kayitliUrun4 as $kayitliUrunSatir4) {
+                                            ?>
+                                                <option value="<?php echo $kayitliUrunSatir4['urunadi']; ?>"><?php echo $kayitliUrunSatir4['urunadi']; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -167,6 +250,11 @@ $maliyetSatir = $maliyet->fetch();
                             $yukseklik = $_POST['yukseklik'];
                             $aciklama = $_POST['aciklama'];
                             $ozellikler = $_POST['ozellikler'];
+                            $kisaaciklama = $_POST['kisaaciklama'];
+                            $ilgiliurun1 = $_POST['ilgiliurun1'];
+                            $ilgiliurun2 = $_POST['ilgiliurun2'];
+                            $ilgiliurun3 = $_POST['ilgiliurun3'];
+                            $ilgiliurun4 = $_POST['ilgiliurun4'];
                             $bazfiyat = $_POST['bazfiyat'];
                             $stokkodu = $_POST['stokkodu'];
                             $kategori = $_POST['kategori'];
@@ -175,8 +263,8 @@ $maliyetSatir = $maliyet->fetch();
 
                             if (move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1) || move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2) || move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3) || move_uploaded_file($_FILES['gorsel4']['tmp_name'], $gorsel4)) {
 
-                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,genislik,derinlik,yukseklik,aciklama,ozellikler,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $bazfiyat, $stokkodu, $kategori, $stok, $durum));
+                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,genislik,derinlik,yukseklik,aciklama,ozellikler,kisaaciklama,ilgiliurun1,ilgiliurun2,ilgiliurun3,ilgiliurun4,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $kisaaciklama, $ilgiliurun1, $ilgiliurun2, $ilgiliurun3, $ilgiliurun4,$bazfiyat, $stokkodu, $kategori, $stok, $durum));
 
                                 if ($urunKaydet->rowCount()) {
                                     echo '<div class="alert alert-success">Kayıt Başarılı</div>';
