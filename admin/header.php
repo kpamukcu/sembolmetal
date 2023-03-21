@@ -25,7 +25,7 @@ if (!isset($_SESSION['user'])) {
     <link rel="icon" href="img/sembol-metal-icon.ico" type="image/x-icon" />
 
     <!-- CK Editor 4 Cdn -->
-    <script src="//cdn.ckeditor.com/4.20.2/basic/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 
 
     <title>Sembol Metal | Admin Paneli</title>
