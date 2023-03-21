@@ -15,6 +15,12 @@
     color: #fff;
 }
 
+#admin .dropdown-menu{
+    background: #343a40;
+    border: none;
+    margin-left: 10px;
+}
+
 #footer .bi, #contactInfo .bi{
     font-size:28px;
 }

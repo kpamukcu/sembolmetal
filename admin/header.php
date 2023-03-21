@@ -52,7 +52,7 @@ if (!isset($_SESSION['user'])) {
     <section id="adminContent">
         <div class="container-fluid">
             <div class="row" style="height:96vh;">
-                <div class="col-md-2 bg-dark">
+                <div class="col-md-2 bg-dark py-2">
                     <ul class="list-group">
                         <a href="dashboard.php">
                             <li class="list-group-item bg-transparent border-0">Başlangıç</li>
@@ -66,9 +66,35 @@ if (!isset($_SESSION['user'])) {
                         <a href="maliyet.php">
                             <li class="list-group-item bg-transparent border-0">Maliyet Hesaplama</li>
                         </a>
-                        <a href="mainpage.php">
-                            <li class="list-group-item bg-transparent border-0">Ana Sayfa Ayarları</li>
+                        <a href="blog.php">
+                            <li class="list-group-item bg-transparent border-0">Yazılar</li>
                         </a>
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                <li class="list-group-item bg-transparent border-0">Sayfalar <span class="bi-caret-down"></span></li>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a href="mainpage.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">Ana Sayfa</li>
+                                </a>
+                                <a href="aboutpage.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">Hakkımızda</li>
+                                </a>
+                                <a href="ik.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">İnsan Kaynakları</li>
+                                </a>
+                                <a href="referanslar.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">Referanslar</li>
+                                </a>
+                                <a href="projeler.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">Projeler</li>
+                                </a>
+                                <a href="iletisim.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">İletişim</li>
+                                </a>
+                            </div>
+                        </div>
                     </ul>
                 </div>
                 <div class="col-md-10 py-5">
