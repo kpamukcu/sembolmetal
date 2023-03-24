@@ -86,7 +86,7 @@ if(isset($_POST['blogKaydet'])){
 
     if(move_uploaded_file($_FILES['gorsel']['tmp_name'],$gorsel)){
         $blogKaydet = $db-> prepare('insert into makale(baslik,icerik,meta,gorsel,altEtiketi,tarih) values(?,?,?,?,?,?)');
-        $$blogKaydet -> execute(array($baslik,$icerik,$meta,$gorsel,$altEtiketi,$tarih));
+        $blogKaydet -> execute(array($baslik,$icerik,$meta,$gorsel,$altEtiketi,$tarih));
     }
 }
 
