@@ -4,12 +4,12 @@
 <section id="makale">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 my-auto">
                 <h3 class="lead">Blog Yazıları</h3>
             </div>
             <div class="col-md-6 text-right">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
                     Yeni Yazı Ekle
                 </button>
 
@@ -74,19 +74,60 @@
 </section>
 <!-- Makale Section End -->
 
+<!-- Blog List Section Start -->
+<section id="blogList" class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Görsel</th>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th class="text-center">Düzenle</th>
+                            <th class="text-center">Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $blogList = $db->prepare('select * from makale order by id desc');
+                        $blogList->execute();
+                        if ($blogList->rowCount()) {
+                            foreach ($blogList as $blogListSatir) {
+                        ?>
+                                <tr>
+                                    <td class="w-25"><img src="<?php echo $blogListSatir['gorsel'] ?>" class="img-fluid"></td>
+                                    <td><?php echo $blogListSatir['baslik']; ?></td>
+                                    <td><?php echo $blogListSatir['tarih']; ?></td>
+                                    <td class="text-center"><a href="blog-guncelle.php?id=<?php echo $blogListSatir['id']; ?>"><i class="bi bi-pencil-square text-warning" role="button"></i></a></td>
+                                    <td class="text-center"><a href="blog-sil.php?id=<?php echo $blogListSatir['id']; ?>"><i class="bi bi-trash3-fill text-danger" role="button"></i></a></td>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog List Section End -->
+
 <?php
 
-if(isset($_POST['blogKaydet'])){
+if (isset($_POST['blogKaydet'])) {
     $baslik = $_POST['baslik'];
     $icerik = $_POST['icerik'];
     $meta = $_POST['meta'];
-    $gorsel = '../img/'.$_FILES['gorsel']['name'];
+    $gorsel = '../img/' . $_FILES['gorsel']['name'];
     $altEtiketi = $_POST['altEtiketi'];
     $tarih = $_POST['tarih'];
 
-    if(move_uploaded_file($_FILES['gorsel']['tmp_name'],$gorsel)){
-        $blogKaydet = $db-> prepare('insert into makale(baslik,icerik,meta,gorsel,altEtiketi,tarih) values(?,?,?,?,?,?)');
-        $blogKaydet -> execute(array($baslik,$icerik,$meta,$gorsel,$altEtiketi,$tarih));
+    if (move_uploaded_file($_FILES['gorsel']['tmp_name'], $gorsel)) {
+        $blogKaydet = $db->prepare('insert into makale(baslik,icerik,meta,gorsel,altEtiketi,tarih) values(?,?,?,?,?,?)');
+        $blogKaydet->execute(array($baslik, $icerik, $meta, $gorsel, $altEtiketi, $tarih));
     }
 }
 
