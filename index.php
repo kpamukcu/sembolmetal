@@ -2,12 +2,17 @@
 <?php require_once('slider.php') ?>
 
 <!-- About Us Section Start -->
+<?php
+$indexHakkimizda = $db->prepare('select * from hakkimizda order by id desc limit 1');
+$indexHakkimizda->execute();
+$indexHakkimizdaSatir = $indexHakkimizda->fetch();
+?>
 <section id="aboutUs" class="text-center py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <h2>Hakkımızda</h2>
-                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia. Unde itaque possimus, ea, ipsam, libero officia tenetur temporibus ratione vero voluptatum pariatur aut obcaecati. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam necessitatibus odit nihil minus quam iusto a consequuntur vel, autem, sapiente, nemo magnam soluta molestias. Sunt.</p>
+                <p class="text-justify"><?php echo $indexHakkimizdaSatir['tarihceAciklama']; ?></p>
                 <a href="hakkimizda.php" class="btn btn-outline-dark">Devamını Okuyun</a>
             </div>
         </div>
@@ -16,22 +21,27 @@
 <!-- About Us Section End -->
 
 <!-- Proje ve Ürün Fikirleri Section Start -->
+<?php
+$boxes = $db->prepare('select * from anasayfaboxes order by id desc limit 1');
+$boxes->execute();
+$boxesSatir = $boxes->fetch();
+?>
 <section id="talep" class="py-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Başlık Gelecek</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quia, eius nisi velit tempora, placeat nam totam dolorum provident magni eum labore a, illo laudantium?</p>
+                        <h2><?php echo $boxesSatir['baslik1']; ?></h2>
+                        <p><?php echo $boxesSatir['aciklama1']; ?></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Başlık Gelecek</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quia, eius nisi velit tempora, placeat nam totam dolorum provident magni eum labore a, illo laudantium?</p>
+                        <h2><?php echo $boxesSatir['baslik2']; ?></h2>
+                        <p><?php echo $boxesSatir['aciklama2']; ?></p>
                     </div>
                 </div>
             </div>
@@ -40,16 +50,18 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Başlık Gelecek</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quia, eius nisi velit tempora, placeat nam totam dolorum provident magni eum labore a, illo laudantium?</p>
+                        <h2><?php echo $boxesSatir['baslik3']; ?></h2>
+                        <p><?php echo $boxesSatir['aciklama3']; ?></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Başlık Gelecek</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quia, eius nisi velit tempora, placeat nam totam dolorum provident magni eum labore a, illo laudantium?</p>
+                        <h2 class="text-left"><?php echo $boxesSatir['baslik4']; ?></h2>
+                        <a href="<?php echo substr($boxesSatir['katalog'], 3); ?>" target="blank">
+                        <img src="img/sembol-metal-katalog.webp" alt="Sembol Metal Katalog" class="w-25">
+                        </a>
                     </div>
                 </div>
             </div>
