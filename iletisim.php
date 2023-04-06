@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9 mx-auto">
-                <form action="" method="post" class="form-row bg-light p-4 border">
+                <form method="post" class="form-row bg-light p-4 border">
                     <div class="col-md-6">
                         <div class="form-group">
                             <input type="text" name="adiniz" placeholder="Adınız Soyadınız" class="form-control" required>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="email" name="epost" placeholder="E-Posta Adresiniz" class="form-control">
+                            <input type="email" name="email" placeholder="E-Posta Adresiniz" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -85,10 +85,28 @@
                             <textarea name="mesaj" placeholder="Mesajınız" class="form-control" rows="8"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Gönder" class="btn btn-success w-100">
+                            <input type="submit" value="Gönder" class="btn btn-success w-100" name="iletisimForm">
                         </div>
                     </div>
                 </form>
+                <?php
+                if (isset($_POST['iletisimForm'])) {
+                    $adiniz = $_POST['adiniz'];
+                    $telefon = $_POST['telefon'];
+                    $email = $_POST['email'];
+                    $konu = $_POST['konu'];
+                    $mesaj = $_POST['mesaj'];
+
+                    $iletisim = $db->prepare('insert into iletisim(adiniz,telefon,email,konu,mesaj) values(?,?,?,?,?)');
+                    $iletisim->execute(array($adiniz, $telefon, $email, $konu, $mesaj));
+
+                    if ($iletisim->rowCount()) {
+                        echo '<div class="alert alert-success text-center">Mesajınız İletilmiştir.</div>';
+                    } else {
+                        echo '<div class="alert alert-danger text-center">Hata Oluştu. Lütfen Tekrar Deneyiniz.</div>';
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
