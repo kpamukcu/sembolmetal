@@ -66,6 +66,9 @@ if (!isset($_SESSION['user'])) {
                         <a href="maliyet.php">
                             <li class="list-group-item bg-transparent border-0">Maliyet Hesaplama</li>
                         </a>
+                        <a href="profil-ekle.php">
+                            <li class="list-group-item bg-transparent border-0">Profil Ekleme</li>
+                        </a>
                         <a href="blog.php">
                             <li class="list-group-item bg-transparent border-0">Yazılar</li>
                         </a>
