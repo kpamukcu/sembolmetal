@@ -6,11 +6,11 @@ $urun = $db->prepare('select * from urunler where id=?');
 $urun->execute(array($id));
 $urunSatir = $urun->fetch();
 
-$maliyet = $db->prepare('select * from maliyet');
-$maliyet->execute();
+$maliyet = $db->prepare('select * from profilekle where ebat=?');
+$maliyet->execute(array($urunSatir['profil']));
 $maliyetSatir = $maliyet->fetch();
 
-$topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
+$topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['fiyat6m'];
 ?>
 
 <!-- Product Section Start -->
@@ -109,7 +109,7 @@ $topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
 <!-- Product Description End -->
 
 <!-- Related Products Section Start -->
-<section id="related" class="py-5">
+<!-- <section id="related" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -123,7 +123,7 @@ $topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php echo $urunSatir['ilgiliurun1']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun1']; ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -139,7 +139,7 @@ $topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php echo $urunSatir['ilgiliurun2']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun2']; ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -155,7 +155,7 @@ $topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php echo $urunSatir['ilgiliurun3']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun3']; ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -171,7 +171,7 @@ $topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php echo $urunSatir['ilgiliurun4']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun4']; ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -183,7 +183,7 @@ $topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['topmaliyet'];
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Related Products Section End -->
 
 <?php require_once('footer.php') ?>

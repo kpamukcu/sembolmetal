@@ -2,9 +2,9 @@
 
 require_once('header.php');
 
-$maliyet = $db->prepare('select * from maliyet');
-$maliyet->execute();
-$maliyetSatir = $maliyet->fetch();
+// $maliyet = $db->prepare('select * from maliyet');
+// $maliyet->execute();
+// $maliyetSatir = $maliyet->fetch();
 
 ?>
 
@@ -65,17 +65,36 @@ $maliyetSatir = $maliyet->fetch();
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
+                                        <label>Profil Bilgisi</label>
+                                        <select name="profil" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <?php
+                                            $profilSec = $db->prepare('select * from profilekle order by ebat asc');
+                                            $profilSec->execute();
+                                            if ($profilSec->rowCount()) {
+                                                foreach ($profilSec as $profilSecSatir) {
+                                            ?>
+                                                    <option value="<?php echo $profilSecSatir['ebat']; ?>"><?php echo $profilSecSatir['ebat']; ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
                                         <label>Genişlik</label>
                                         <input type="text" name="genislik" placeholder="Ör: 50cm" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Derinlik</label>
                                         <input type="text" name="derinlik" placeholder="Ör: 50cm" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Yükseklik</label>
                                         <input type="text" name="yukseklik" placeholder="Ör: 50cm" class="form-control">
@@ -106,74 +125,6 @@ $maliyetSatir = $maliyet->fetch();
                                         <script>
                                             CKEDITOR.replace('kisaaciklama');
                                         </script>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>İlgili Ürün 1</label>
-                                        <select name="ilgiliurun1" class="form-control">
-                                            <option value="">İlgili Ürün Seçiniz</option>
-                                            <?php
-                                            $kayitliUrun1 = $db->prepare('select * from urunler order by urunadi asc');
-                                            $kayitliUrun1->execute();
-                                            foreach ($kayitliUrun1 as $kayitliUrunSatir1) {
-                                            ?>
-                                                <option value="<?php echo $kayitliUrunSatir1['urunadi']; ?>"><?php echo $kayitliUrunSatir1['urunadi']; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>İlgili Ürün 2</label>
-                                        <select name="ilgiliurun2" class="form-control">
-                                            <option value="">İlgili Ürün Seçiniz</option>
-                                            <?php
-                                            $kayitliUrun2 = $db->prepare('select * from urunler order by urunadi asc');
-                                            $kayitliUrun2->execute();
-                                            foreach ($kayitliUrun2 as $kayitliUrunSatir2) {
-                                            ?>
-                                                <option value="<?php echo $kayitliUrunSatir2['urunadi']; ?>"><?php echo $kayitliUrunSatir2['urunadi']; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>İlgili Ürün 3</label>
-                                        <select name="ilgiliurun3" class="form-control">
-                                            <option value="">İlgili Ürün Seçiniz</option>
-                                            <?php
-                                            $kayitliUrun3 = $db->prepare('select * from urunler order by urunadi asc');
-                                            $kayitliUrun3->execute();
-                                            foreach ($kayitliUrun3 as $kayitliUrunSatir3) {
-                                            ?>
-                                                <option value="<?php echo $kayitliUrunSatir3['urunadi']; ?>"><?php echo $kayitliUrunSatir3['urunadi']; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>İlgili Ürün 4</label>
-                                        <select name="ilgiliurun4" class="form-control">
-                                            <option value="">İlgili Ürün Seçiniz</option>
-                                            <?php
-                                            $kayitliUrun4 = $db->prepare('select * from urunler order by urunadi asc');
-                                            $kayitliUrun4->execute();
-                                            foreach ($kayitliUrun4 as $kayitliUrunSatir4) {
-                                            ?>
-                                                <option value="<?php echo $kayitliUrunSatir4['urunadi']; ?>"><?php echo $kayitliUrunSatir4['urunadi']; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -228,7 +179,8 @@ $maliyetSatir = $maliyet->fetch();
                         <div class="modal-footer">
                             <div class="row">
                                 <div class="col-md-6 my-auto">
-                                    Güncel Maliyet: <?php echo $maliyetSatir['topmaliyet']; ?> ₺
+                                    Güncel Maliyet: <?php // echo $maliyetSatir['topmaliyet']; 
+                                                    ?> ₺
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
@@ -245,16 +197,13 @@ $maliyetSatir = $maliyet->fetch();
                             $gorsel3 = '../img/' . $_FILES['gorsel3']['name'];
                             $gorsel4 = '../img/' . $_FILES['gorsel4']['name'];
                             $urunadi = $_POST['urunadi'];
+                            $profil = $_POST['profil'];
                             $genislik = $_POST['genislik'];
                             $derinlik = $_POST['derinlik'];
                             $yukseklik = $_POST['yukseklik'];
                             $aciklama = $_POST['aciklama'];
                             $ozellikler = $_POST['ozellikler'];
                             $kisaaciklama = $_POST['kisaaciklama'];
-                            $ilgiliurun1 = $_POST['ilgiliurun1'];
-                            $ilgiliurun2 = $_POST['ilgiliurun2'];
-                            $ilgiliurun3 = $_POST['ilgiliurun3'];
-                            $ilgiliurun4 = $_POST['ilgiliurun4'];
                             $bazfiyat = $_POST['bazfiyat'];
                             $stokkodu = $_POST['stokkodu'];
                             $kategori = $_POST['kategori'];
@@ -263,8 +212,8 @@ $maliyetSatir = $maliyet->fetch();
 
                             if (move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1) || move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2) || move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3) || move_uploaded_file($_FILES['gorsel4']['tmp_name'], $gorsel4)) {
 
-                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,genislik,derinlik,yukseklik,aciklama,ozellikler,kisaaciklama,ilgiliurun1,ilgiliurun2,ilgiliurun3,ilgiliurun4,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $kisaaciklama, $ilgiliurun1, $ilgiliurun2, $ilgiliurun3, $ilgiliurun4,$bazfiyat, $stokkodu, $kategori, $stok, $durum));
+                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,profil,genislik,derinlik,yukseklik,aciklama,ozellikler,kisaaciklama,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $profil, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $kisaaciklama, $bazfiyat, $stokkodu, $kategori, $stok, $durum));
 
                                 if ($urunKaydet->rowCount()) {
                                     echo '<div class="alert alert-success">Kayıt Başarılı</div>';
@@ -286,6 +235,7 @@ $maliyetSatir = $maliyet->fetch();
                         <th>Ürün Adı</th>
                         <th>Stok Kodu</th>
                         <th>Stok Adet</th>
+                        <th>Profil</th>
                         <th>Ölçüler</th>
                         <th>Baz Fiyat</th>
                         <th>Top. Fiyat</th>
@@ -308,9 +258,21 @@ $maliyetSatir = $maliyet->fetch();
                                 <td><?php echo $urunListSatir['urunadi']; ?></td>
                                 <td><?php echo $urunListSatir['stokkodu']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['stok']; ?></td>
+                                <td><?php echo $urunListSatir['profil']; ?></td>
                                 <td><?php echo $urunListSatir['genislik'] . 'x' . $urunListSatir['derinlik'] . 'x' . $urunListSatir['yukseklik']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?>₺</td>
-                                <td class="text-center"><?php echo $urunListSatir['bazfiyat'] + $maliyetSatir['topmaliyet']; ?>₺</td>
+
+                                <!-- Maliyet Bulma Start -->
+                                <?php
+
+                                $profilMaliyet = $db->prepare('select * from profilekle where ebat=?');
+                                $profilMaliyet->execute(array($urunListSatir['profil']));
+                                $profilMaliyetSatir = $profilMaliyet->fetch();
+
+                                ?>
+                                <!-- Maliyet Bulma End -->
+
+                                <td class="text-center"><?php echo $urunListSatir['bazfiyat'] + $profilMaliyetSatir['fiyat6m']; ?>₺</td>
                                 <td><?php echo $urunListSatir['kategori']; ?></td>
                                 <td><?php echo $urunListSatir['durum']; ?></td>
                                 <td><a href="urunguncelle.php?id=<?php echo $urunListSatir['id']; ?>"><i class="bi bi-pencil-square text-warning"></i></a></td>
