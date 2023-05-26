@@ -59,9 +59,9 @@ if (isset($_GET['id'])) {
                                         <select name="malTuru" class="form-control">
                                             <option value="">Seçiniz</option>
                                             <option value="Alüminyum">Alüminyum</option>
-                                            <option value="Paslanmaz">Paslanmaz</option>
                                             <option value="Demir">Demir</option>
-                                            <option value="Ahşap">Ahşap</option>
+                                            <option value="Paslanmaz">Paslanmaz</option>
+                                            <option value="Pirinç">Pirinç</option>
                                         </select>
                                     </div>
 
@@ -163,9 +163,9 @@ if (isset($_GET['id'])) {
                         <select name="malTuruGuncelle" class="form-control">
                             <option value="<?php echo $profilDuzenleSatir['malTuru']; ?>"><?php echo $profilDuzenleSatir['malTuru']; ?></option>
                             <option value="Alüminyum">Alüminyum</option>
-                            <option value="Paslanmaz">Paslanmaz</option>
                             <option value="Demir">Demir</option>
-                            <option value="Ahşap">Ahşap</option>
+                            <option value="Paslanmaz">Paslanmaz</option>
+                            <option value="Pirinç">Pirinç</option>
                         </select>
                     </div>
                 </div>
@@ -179,15 +179,15 @@ if (isset($_GET['id'])) {
 </div>
 
 <?php
-if(isset($_POST['profilGuncelle'])){
+if (isset($_POST['profilGuncelle'])) {
     $ebatGuncelle = $_POST['ebatGuncelle'];
     $fiyat6mGuncelle = $_POST['fiyat6mGuncelle'];
     $malTuruGuncelle = $_POST['malTuruGuncelle'];
 
-    $profilGuncelle = $db -> prepare('update profilekle set ebat=?, fiyat6m=?, malTuru=? where id=?');
-    $profilGuncelle -> execute(array($ebatGuncelle,$fiyat6mGuncelle,$malTuruGuncelle,$profilDuzenleSatir['id']));
+    $profilGuncelle = $db->prepare('update profilekle set ebat=?, fiyat6m=?, malTuru=? where id=?');
+    $profilGuncelle->execute(array($ebatGuncelle, $fiyat6mGuncelle, $malTuruGuncelle, $profilDuzenleSatir['id']));
 
-    if($profilGuncelle -> rowCount()){
+    if ($profilGuncelle->rowCount()) {
         echo '<script>alert("Kayıt Güncellendi")</script><meta http-equiv="refresh" content="0; url=profil-ekle.php">';
     } else {
         echo '<script>alert("Hata Oluştu")</script>';

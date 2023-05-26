@@ -57,31 +57,13 @@ require_once('header.php');
                                         <input type="file" name="gorsel4">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ürün Adı</label>
                                         <input type="text" name="urunadi" placeholder="Ürün Adı Girin" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Profil Bilgisi</label>
-                                        <select name="profil" class="form-control">
-                                            <option value="">Seçiniz</option>
-                                            <?php
-                                            $profilSec = $db->prepare('select * from profilekle order by ebat asc');
-                                            $profilSec->execute();
-                                            if ($profilSec->rowCount()) {
-                                                foreach ($profilSec as $profilSecSatir) {
-                                            ?>
-                                                    <option value="<?php echo $profilSecSatir['ebat']; ?>"><?php echo $profilSecSatir['ebat']; ?></option>
-                                            <?php
-                                                }
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Genişlik</label>
@@ -98,6 +80,127 @@ require_once('header.php');
                                     <div class="form-group">
                                         <label>Yükseklik</label>
                                         <input type="text" name="yukseklik" placeholder="Ör: 50cm" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Demir Profil</label>
+                                        <select name="demirProfil" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <?php
+                                            $demirprofilSec = $db->prepare('select * from profilekle order by ebat asc');
+                                            $demirprofilSec->execute();
+                                            if ($demirprofilSec->rowCount()) {
+                                                foreach ($demirprofilSec as $demirprofilSecSatir) {
+                                            ?>
+                                                    <option value="<?php echo $demirprofilSecSatir['ebat']; ?>"><?php echo $demirprofilSecSatir['ebat']; ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Kullanılan Demir Profil (cm)</label>
+                                        <input type="text" name="kullanilanDemir" placeholder="Ör:170" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Alüminyum Profil</label>
+                                        <select name="aluminyumProfil" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Kullanılan Alüminyum Profil (cm)</label>
+                                        <input type="text" name="kullanilanAluminyum" placeholder="Ör:170" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Paslanmaz Profil</label>
+                                        <select name="paslanmazProfil" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Kullanılan Paslanmaz Profil (cm)</label>
+                                        <input type="text" name="kullanilanPaslanmaz" placeholder="Ör:170" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Pirinç Profil</label>
+                                        <select name="princProfil" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Kullanılan Prinç Profil (cm)</label>
+                                        <input type="text" name="kullanilanPrinc" placeholder="Ör:170" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Boya Türü</label>
+                                        <select name="boya" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Kumaş Türü</label>
+                                        <select name="kumas" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ahşap Türü</label>
+                                        <select name="ahsap" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ahşap Maliyeti</label>
+                                        <input type="text" name="ahsapMaliyet" placeholder="Ör: 750" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>İşçilik Ücreti</label>
+                                        <input type="text" name="iscilik" placeholder="Ör: 1500" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ek Maliyet</label>
+                                        <input type="text" name="ekMaliyet" placeholder="Ör: 1500" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ek Maliyet Açıklama</label>
+                                        <input type="text" name="ekAciklama" placeholder="Ek Maliyet Açıklaması Girin" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -129,8 +232,8 @@ require_once('header.php');
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Baz Fiyat (Maliyet Hariç)</label>
-                                        <input type="text" name="bazfiyat" placeholder="Ör: 1500" class="form-control">
+                                        <label>Çarpan</label>
+                                        <input type="text" name="bazfiyat" placeholder="Ör: 3" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -197,7 +300,21 @@ require_once('header.php');
                             $gorsel3 = '../img/' . $_FILES['gorsel3']['name'];
                             $gorsel4 = '../img/' . $_FILES['gorsel4']['name'];
                             $urunadi = $_POST['urunadi'];
-                            $profil = $_POST['profil'];
+                            $demirProfil = $_POST['demirProfil'];
+                            $kullanilanDemir = $_POST['kullanilanDemir'];
+                            $aluminyumProfil = $_POST['aluminyumProfil'];
+                            $kullanilanAluminyum = $_POST['kullanilanAluminyum'];
+                            $paslanmazProfil = $_POST['paslanmazProfil'];
+                            $kullanilanPaslanmaz = $_POST['kullanilanPaslanmaz'];
+                            $princProfil = $_POST['princProfil'];
+                            $kullanilanPrinc = $_POST['kullanilanPrinc'];
+                            $boya = $_POST['boya'];
+                            $kumas = $_POST['kumas'];
+                            $ahsap = $_POST['ahsap'];
+                            $ahsapMaliyet = $_POST['ahsapMaliyet'];
+                            $iscilik = $_POST['iscilik'];
+                            $ekMaliyet = $_POST['ekMaliyet'];
+                            $ekAciklama = $_POST['ekAciklama'];
                             $genislik = $_POST['genislik'];
                             $derinlik = $_POST['derinlik'];
                             $yukseklik = $_POST['yukseklik'];
@@ -212,8 +329,8 @@ require_once('header.php');
 
                             if (move_uploaded_file($_FILES['gorsel1']['tmp_name'], $gorsel1) || move_uploaded_file($_FILES['gorsel2']['tmp_name'], $gorsel2) || move_uploaded_file($_FILES['gorsel3']['tmp_name'], $gorsel3) || move_uploaded_file($_FILES['gorsel4']['tmp_name'], $gorsel4)) {
 
-                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,profil,genislik,derinlik,yukseklik,aciklama,ozellikler,kisaaciklama,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $profil, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $kisaaciklama, $bazfiyat, $stokkodu, $kategori, $stok, $durum));
+                                $urunKaydet = $db->prepare('insert into urunler(gorsel1,gorsel2,gorsel3,gorsel4,urunadi,demirProfil,kullanilanDemir,aluminyumProfil,kullanilanAluminyum,paslanmazProfil,kullanilanPaslanmaz,princProfil,kullanilanPrinc,boya,kumas,ahsap,ahsapMaliyet,iscilik,ekMaliyet,ekAciklama,genislik,derinlik,yukseklik,aciklama,ozellikler,kisaaciklama,bazfiyat,stokkodu,kategori,stok,durum) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                $urunKaydet->execute(array($gorsel1, $gorsel2, $gorsel3, $gorsel4, $urunadi, $demirProfil, $kullanilanDemir, $aluminyumProfil, $kullanilanAluminyum, $paslanmazProfil, $kullanilanPaslanmaz, $princProfil, $kullanilanPrinc, $boya, $kumas, $ahsap, $ahsapMaliyet, $iscilik, $ekMaliyet, $ekAciklama, $genislik, $derinlik, $yukseklik, $aciklama, $ozellikler, $kisaaciklama, $bazfiyat, $stokkodu, $kategori, $stok, $durum));
 
                                 if ($urunKaydet->rowCount()) {
                                     echo '<div class="alert alert-success">Kayıt Başarılı</div>';
@@ -258,7 +375,7 @@ require_once('header.php');
                                 <td><?php echo $urunListSatir['urunadi']; ?></td>
                                 <td><?php echo $urunListSatir['stokkodu']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['stok']; ?></td>
-                                <td><?php echo $urunListSatir['profil']; ?></td>
+                                <td><?php echo $urunListSatir['demirProfil']; ?></td>
                                 <td><?php echo $urunListSatir['genislik'] . 'x' . $urunListSatir['derinlik'] . 'x' . $urunListSatir['yukseklik']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?>₺</td>
 
@@ -266,7 +383,7 @@ require_once('header.php');
                                 <?php
 
                                 $profilMaliyet = $db->prepare('select * from profilekle where ebat=?');
-                                $profilMaliyet->execute(array($urunListSatir['profil']));
+                                $profilMaliyet->execute(array($urunListSatir['demirProfil']));
                                 $profilMaliyetSatir = $profilMaliyet->fetch();
 
                                 ?>
