@@ -7,10 +7,10 @@ $urun->execute(array($id));
 $urunSatir = $urun->fetch();
 
 $maliyet = $db->prepare('select * from profilekle where ebat=?');
-$maliyet->execute(array($urunSatir['profil']));
+$maliyet->execute(array($urunSatir['demirProfil']));
 $maliyetSatir = $maliyet->fetch();
 
-$topFiyat = $urunSatir['bazfiyat'] + $maliyetSatir['fiyat6m'];
+$topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
 ?>
 
 <!-- Product Section Start -->

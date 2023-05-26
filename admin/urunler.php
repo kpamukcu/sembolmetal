@@ -112,7 +112,7 @@ require_once('header.php');
                                         <label>Alüminyum Profil</label>
                                         <select name="aluminyumProfil" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value=""></option>
+                                            <option value="a">a</option>
                                         </select>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@ require_once('header.php');
                                         <label>Paslanmaz Profil</label>
                                         <select name="paslanmazProfil" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value=""></option>
+                                            <option value="b">b</option>
                                         </select>
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@ require_once('header.php');
                                         <label>Pirinç Profil</label>
                                         <select name="princProfil" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value=""></option>
+                                            <option value="c">c</option>
                                         </select>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ require_once('header.php');
                                         <label>Boya Türü</label>
                                         <select name="boya" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value=""></option>
+                                            <option value="d">d</option>
                                         </select>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@ require_once('header.php');
                                         <label>Kumaş Türü</label>
                                         <select name="kumas" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value=""></option>
+                                            <option value="e">e</option>
                                         </select>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@ require_once('header.php');
                                         <label>Ahşap Türü</label>
                                         <select name="ahsap" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value=""></option>
+                                            <option value="f">f</option>
                                         </select>
                                     </div>
                                 </div>
