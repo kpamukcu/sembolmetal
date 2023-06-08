@@ -88,7 +88,7 @@ require_once('header.php');
                                         <select name="demirProfil" class="form-control">
                                             <option value="">Seçiniz</option>
                                             <?php
-                                            $demirprofilSec = $db->prepare('select * from profilekle order by ebat asc');
+                                            $demirprofilSec = $db->prepare('select * from profilekle where malTuru="Demir" order by ebat asc');
                                             $demirprofilSec->execute();
                                             if ($demirprofilSec->rowCount()) {
                                                 foreach ($demirprofilSec as $demirprofilSecSatir) {
@@ -112,7 +112,17 @@ require_once('header.php');
                                         <label>Alüminyum Profil</label>
                                         <select name="aluminyumProfil" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value="a">a</option>
+                                            <?php
+                                            $aluminyumProfilSec = $db->prepare('select * from profilekle where malTuru="Alüminyum" order by ebat asc');
+                                            $aluminyumProfilSec->execute();
+                                            if ($aluminyumProfilSec->rowCount()) {
+                                                foreach ($aluminyumProfilSec as $aluminyumProfilSecSatir) {
+                                            ?>
+                                                    <option value="<?php echo $aluminyumProfilSecSatir['ebat']; ?>"><?php echo $aluminyumProfilSecSatir['ebat']; ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -127,7 +137,17 @@ require_once('header.php');
                                         <label>Paslanmaz Profil</label>
                                         <select name="paslanmazProfil" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value="b">b</option>
+                                            <?php
+                                            $paslanmazProfilSec = $db->prepare('select * from profilekle where malTuru="Paslanmaz" order by ebat asc');
+                                            $paslanmazProfilSec->execute();
+                                            if ($paslanmazProfilSec->rowCount()) {
+                                                foreach ($paslanmazProfilSec as $paslanmazProfilSecSatir) {
+                                            ?>
+                                                    <option value="<?php echo $paslanmazProfilSecSatir['ebat']; ?>"><?php echo $paslanmazProfilSecSatir['ebat']; ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -142,7 +162,17 @@ require_once('header.php');
                                         <label>Pirinç Profil</label>
                                         <select name="princProfil" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value="c">c</option>
+                                            <?php
+                                            $pirincProfilSec = $db->prepare('select * from profilekle where malTuru="Pirinç" order by ebat asc');
+                                            $pirincProfilSec->execute();
+                                            if ($pirincProfilSec->rowCount()) {
+                                                foreach ($pirincProfilSec as $pirincProfilSecSatir) {
+                                            ?>
+                                                    <option value="<?php echo $pirincProfilSecSatir['ebat']; ?>"><?php echo $pirincProfilSecSatir['ebat']; ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -157,7 +187,9 @@ require_once('header.php');
                                         <label>Boya Türü</label>
                                         <select name="boya" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value="d">d</option>
+                                            <option value="Kaplama">Kaplama</option>
+                                            <option value="Statik">Statik</option>
+                                            <option value="Titanyum">Titanyum</option>
                                         </select>
                                     </div>
                                 </div>
@@ -166,7 +198,8 @@ require_once('header.php');
                                         <label>Kumaş Türü</label>
                                         <select name="kumas" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value="e">e</option>
+                                            <option value="Deri">Deri</option>
+                                            <option value="Kumaş">Kumaş</option>
                                         </select>
                                     </div>
                                 </div>
@@ -175,7 +208,9 @@ require_once('header.php');
                                         <label>Ahşap Türü</label>
                                         <select name="ahsap" class="form-control">
                                             <option value="">Seçiniz</option>
-                                            <option value="f">f</option>
+                                            <option value="Ham Ağaç">Ham Ağaç</option>
+                                            <option value="MDF">MDF</option>
+                                            <option value="Sunta">Sunta</option>
                                         </select>
                                     </div>
                                 </div>
@@ -348,13 +383,11 @@ require_once('header.php');
             <table class="table table-striped">
                 <thead>
                     <tr class="text-center">
-                        <th>ID</th>
                         <th>Ürün Adı</th>
                         <th>Stok Kodu</th>
                         <th>Stok Adet</th>
-                        <th>Profil</th>
                         <th>Ölçüler</th>
-                        <th>Baz Fiyat</th>
+                        <th>Çarpan</th>
                         <th>Top. Fiyat</th>
                         <th>Kategori</th>
                         <th>Durum</th>
@@ -371,25 +404,33 @@ require_once('header.php');
                         foreach ($urunList as $urunListSatir) {
                     ?>
                             <tr class="text-center">
-                                <td><?php echo $urunListSatir['id']; ?></td>
                                 <td><?php echo $urunListSatir['urunadi']; ?></td>
                                 <td><?php echo $urunListSatir['stokkodu']; ?></td>
                                 <td class="text-center"><?php echo $urunListSatir['stok']; ?></td>
-                                <td><?php echo $urunListSatir['demirProfil']; ?></td>
                                 <td><?php echo $urunListSatir['genislik'] . 'x' . $urunListSatir['derinlik'] . 'x' . $urunListSatir['yukseklik']; ?></td>
-                                <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?>₺</td>
+                                <td class="text-center"><?php echo $urunListSatir['bazfiyat']; ?></td>
 
                                 <!-- Maliyet Bulma Start -->
                                 <?php
 
-                                $profilMaliyet = $db->prepare('select * from profilekle where ebat=?');
-                                $profilMaliyet->execute(array($urunListSatir['demirProfil']));
+                                $profilMaliyet = $db->prepare('select * from profilekle where id=?');
+                                $profilMaliyet->execute(array($urunListSatir['id']));
                                 $profilMaliyetSatir = $profilMaliyet->fetch();
 
                                 ?>
                                 <!-- Maliyet Bulma End -->
 
-                                <td class="text-center"><?php echo $urunListSatir['bazfiyat'] + $profilMaliyetSatir['fiyat6m']; ?>₺</td>
+                                <td class="text-center">
+                                    <?php
+                                    // echo $urunListSatir['bazfiyat'] + $profilMaliyetSatir['fiyat6m'];
+                                    $aluminyumMaliyet = ($profilMaliyetSatir['fiyat6m']*$urunListSatir['kullanilanAluminyum'])/600;
+                                    $demirMaliyet = ($profilMaliyetSatir['fiyat6m']*$urunListSatir['kullanilanDemir'])/600;
+                                    $paslanmazMaliyet = ($profilMaliyetSatir['fiyat6m']*$urunListSatir['kullanilanPaslanmaz'])/600;
+                                    $pirincMaliyet = ($profilMaliyetSatir['fiyat6m']*$urunListSatir['kullanilanPrinc'])/600;
+                                    $topFiyat = $urunListSatir['bazfiyat']*(($aluminyumMaliyet)+($demirMaliyet)+($paslanmazMaliyet)+($pirincMaliyet)+$urunListSatir['ahsapMaliyet']+$urunListSatir['iscilik']+$urunListSatir['ekMaliyet']);
+                                    echo ceil($topFiyat).' ₺';
+                                    ?>
+                                </td>
                                 <td><?php echo $urunListSatir['kategori']; ?></td>
                                 <td><?php echo $urunListSatir['durum']; ?></td>
                                 <td><a href="urunguncelle.php?id=<?php echo $urunListSatir['id']; ?>"><i class="bi bi-pencil-square text-warning"></i></a></td>
