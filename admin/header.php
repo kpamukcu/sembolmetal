@@ -63,9 +63,9 @@ if (!isset($_SESSION['user'])) {
                         <a href="urunler.php">
                             <li class="list-group-item bg-transparent border-0">Ürünler</li>
                         </a>
-                        <a href="maliyet.php">
+                        <!-- <a href="maliyet.php">
                             <li class="list-group-item bg-transparent border-0">Maliyet Hesaplama</li>
-                        </a>
+                        </a> -->
                         <a href="profil-ekle.php">
                             <li class="list-group-item bg-transparent border-0">Profil Ekleme</li>
                         </a>
@@ -95,6 +95,23 @@ if (!isset($_SESSION['user'])) {
                                 </a>
                                 <a href="iletisim.php">
                                     <li class="list-group-item bg-transparent border-0 py-1">İletişim</li>
+                                </a>
+                                <a href="kvkk-ekle.php">
+                                    <li class="list-group-item bg-transparent border-0 py-1">K.V.K.K</li>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                <li class="list-group-item bg-transparent border-0">Üyeler <span class="bi-caret-down"></span></li>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a href="ebulten-uyeler.php">
+                                    <li class="list-group-item bg-transparent border-0">E-Bülten Üyeleri</li>
+                                </a>
+                                <a href="site-uyeler.php">
+                                    <li class="list-group-item bg-transparent border-0">Üyeler</li>
                                 </a>
                             </div>
                         </div>

@@ -1,0 +1,32 @@
+++ Admin panelinden maliyet hesaplama linki kaldırılacak
+++ Slider vt'den çekilecek
+++ E-bültene Üye Olun Modülü Yazılacak
+++ E-Bültene Üye Olanları Listesi Admin Panelinde Listelenecek
+++ hakkımızda sayfasından video kaldır
+Admin panelinde kvkk ekleme sayfası hazırlanacak
+Kvkk metni veri tabanından ön sayfaya çekilecek
+Admin paneline referans ekleme modülleri eklenecek
+referanlar sayfasına veri tabanından data çekilecek
+admin sayfasına proje ekleme modülü hazırlanacak
+projelerimiz sayfasına veri tabanından data çekilecek
+admin panelinde blog güncelle modülü Yazılacak
+
+
+
+Ürünler
+    - Ön yüze ürün listeleme
+    - Kategori kutucukları tıklandığında kategori sayfası açılıp o kategoriye ait ürünler listelenecek
+      (yapısal olarak ürünler sayfası ile aynı olabilir)
+    - Ürün ekleme sayfasındaki hesaplama modülünü gözden geçir
+
+Üyelik Modülü
+    - Ön sayfaya Üye Ol Sayfası ve üye login sayfası yapılacak
+    - Üye login olduktan sonra ürün fiyatlaı %10 indirimli olacak
+    - Admin Panelinde Üye Listeleri Görünecek (Üye düzenle, Üye Sil, Üye Görüntüle)
+
+
+Düzenle İkonu
+<i class="bi bi-pencil-square text-warning">
+
+Sil İkonu
+<i class="bi bi-trash3-fill text-danger"></i>

@@ -52,16 +52,4 @@ $hakkimizdaSatir = $hakkimizda -> fetch();
 </section>
 <!-- Content Section End -->
 
-<!-- Tanıtım Video Section Start -->
-<section id="video">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 px-0">
-                <video src="img/sky.mp4" controls class="w-100"></video>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Tanıtım Video Section End -->
-
 <?php require_once('footer.php') ?>

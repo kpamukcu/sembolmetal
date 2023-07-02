@@ -1,3 +1,9 @@
+<?php
+$slider = $db->prepare('select * from slider order by id desc limit 1');
+$slider->execute();
+$sliderSatir = $slider->fetch();
+?>
+
 <!-- Slider Section Start -->
 <section id="slider">
     <div class="container-fluid">
@@ -11,24 +17,24 @@
                     </ol> -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/slide1.png" class="d-block w-100" alt="...">
+                            <img src="<?php echo substr($sliderSatir['slide1Gorsel'],3); ?>" class="d-block w-100" alt="Sembol Metal">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                                <h5><?php echo $sliderSatir['slide1Baslik']; ?></h5>
+                                <p><?php echo $sliderSatir['slide1Aciklama']; ?></p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/slide2.png" class="d-block w-100" alt="...">
+                        <img src="<?php echo substr($sliderSatir['slide2Gorsel'],3); ?>" class="d-block w-100" alt="Sembol Metal">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                                <h5><?php echo $sliderSatir['slide2Baslik']; ?></h5>
+                                <p><?php echo $sliderSatir['slide2Aciklama']; ?></p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/slide3.png" class="d-block w-100" alt="...">
+                        <img src="<?php echo substr($sliderSatir['slide3Gorsel'],3); ?>" class="d-block w-100" alt="Sembol Metal">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+                                <h5><?php echo $sliderSatir['slide3Baslik']; ?></h5>
+                                <p><?php echo $sliderSatir['slide3Aciklama']; ?></p>
                             </div>
                         </div>
                     </div>

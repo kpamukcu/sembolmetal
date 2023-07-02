@@ -11,6 +11,17 @@
             <input type="email" name="eposta" placeholder="E-Posta Adresinizi Girin" class="form-control">
           </div>
         </form>
+        <?php
+        if ($_POST) {
+          $ebulten = $db->prepare('insert into ebulten(email) values(?)');
+          $ebulten->execute(array($_POST['eposta']));
+          if($ebulten -> rowCount()){
+            echo '<span class="text-white">E-Bültenimize Kaydınız Yapılmıştır.</span>';
+          } else {
+            echo '<span class="text-warning">Hata Oluştu. Lütfen Tekrar Deneyin.</span>';
+          }
+        }
+        ?>
       </div>
     </div>
   </div>
@@ -21,11 +32,11 @@
 <footer id="footer" class="bg-light py-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <a href="index.php"><img src="img/sembol-metal-logo-siyah-156x105.webp" alt="Sembol Metal Logo" class="w-25"></a> <br>
         <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam recusandae eligendi nihil delectus ab.</small>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h5>Ürün Grupları</h5>
         <small>
           <a href="">Dresuar</a> <br>
@@ -37,7 +48,7 @@
           <a href="">Bar Sandalyesi</a>
         </small>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h5>İletişim</h5>
         <small>
           <b>Adres</b>: Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
@@ -47,18 +58,6 @@
         <a href=""><i class="bi bi-facebook"></i></a>
         <a href=""><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-whatsapp"></i></a>
-      </div>
-      <div class="col-md-3">
-        <h5>E-Bülten Aboneliği</h5>
-        <small>Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.</small>
-        <form method="post" class="mt-3">
-          <div class="form-group">
-            <input type="email" name="eposta" placeholder="E-Posta Adresiniz" class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="checkbox" name="onay"> <small><a href="">Kvkk Sözleşmesini</a> Onaylıyorum</small>
-          </div>
-        </form>
       </div>
     </div>
   </div>
