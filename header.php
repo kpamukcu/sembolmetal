@@ -28,14 +28,14 @@ require_once('baglan.php');
   <header id="header" class="bg-dark">
     <div class="container">
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-12">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="index.php"><img src="img/sembol-metal-logo-beyaz-156x105.webp" alt="Sembol Metal Logo" class="w-25"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
+              <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="index.php">Ana Sayfa</a>
                 </li>
@@ -52,7 +52,7 @@ require_once('baglan.php');
                 <li class="nav-item">
                   <a class="nav-link" href="urunler.php">Ürünler</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href="referanslar.php">Referanslar</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -63,19 +63,19 @@ require_once('baglan.php');
                     <a class="dropdown-item" href="projeler.php">Kurumsal Projeler</a>
                     <a class="dropdown-item" href="projeler.php">Ev Projeleri</a>
                   </div>
-                </li>
+                </li> -->
                 <li class="nav-item">
                   <a class="nav-link" href="blog.php">Blog</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="iletisim.php">İletişim</a>
                 </li>
+                <li class="nav-item ml-4">
+                  <a class="nav-link btn btn-warning text-dark" href="iletisim.php">Projem Var</a>
+                </li>
               </ul>
             </div>
           </nav>
-        </div>
-        <div class="col-md-2 my-auto text-right">
-            <a class="btn btn-warning text-dark" href="iletisim.php">Projem Var</a>
         </div>
       </div>
     </div>

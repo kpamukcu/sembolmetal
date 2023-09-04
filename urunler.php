@@ -19,7 +19,7 @@ $maliyetSatir = $maliyet -> fetch();
 <!-- Banner Section End -->
 
 <!-- Categories Section Start -->
-<section id="categories" class="py-5">
+<!-- <section id="categories" class="py-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -60,7 +60,7 @@ $maliyetSatir = $maliyet -> fetch();
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Categories Section End -->
 
 <!-- Products Section Start -->
@@ -68,7 +68,7 @@ $maliyetSatir = $maliyet -> fetch();
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12">
-                <small class="text-muted">ÜST BAŞLIK</small>
+                <small class="text-muted">SEMBOL METAL</small>
                 <h3>ÜRÜNLERİMİZ</h3>
             </div>
         </div>
@@ -91,7 +91,7 @@ $maliyetSatir = $maliyet -> fetch();
                                         <small><a href="kategori.php?kat=<?php echo $urunListSatir['kategori']; ?>"><?php echo $urunListSatir['kategori']; ?></a></small>
                                     </div>
                                     <div class="col-3 text-right px-0">
-                                        <?php echo $urunListSatir['bazfiyat']+$maliyetSatir['topmaliyet']; ?> ₺
+                                        <?php // echo $urunListSatir['bazfiyat']+$maliyetSatir['topmaliyet']; ?>
                                     </div>
                                 </div>
                             </div>

@@ -57,9 +57,10 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
             </div>
             <div class="col-md-6">
                 <h1><?php echo $urunSatir['urunadi']; ?></h1>
-                <span><?php echo $topFiyat; ?> ₺</span><br>
+                <strong>Fiyat Teklifi Alın <?php // echo $topFiyat;
+                                            ?> </strong><br>
                 <?php echo $urunSatir['kisaaciklama']; ?>
-                <form action="basket.php" method="get" class="form-row">
+                <!-- <form action="basket.php" method="get" class="form-row">
                     <div class="col-md-2">
                         <div class="form-group">
                             <input type="number" name="" id="" class="form-control" value="1" style="font-weight: 600;">
@@ -70,11 +71,9 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                             <input type="submit" value="Sepete Ekle" class="btn btn-outline-dark">
                         </div>
                     </div>
-                    <div class="col-12">
-                        <small>S.T.K: <?php echo $urunSatir['stokkodu']; ?></small><br>
-                        <small>Kategori: <a href="kategori.php?kat=<?php echo $urunSatir['kategori']; ?>"><?php echo $urunSatir['kategori']; ?></a></small>
-                    </div>
-                </form>
+                </form> -->
+                <small>S.T.K: <?php echo $urunSatir['stokkodu']; ?></small><br>
+                <small>Kategori: <a href="kategori.php?kat=<?php echo $urunSatir['kategori']; ?>"><?php echo $urunSatir['kategori']; ?></a></small>
             </div>
         </div>
     </div>
@@ -90,7 +89,6 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Açıklama</button>
                         <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Özellikler</button>
-                        <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Yorumlar</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -100,7 +98,6 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     <div class="tab-pane fade pt-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <?php echo $urunSatir['ozellikler']; ?>
                     </div>
-                    <div class="tab-pane fade pt-4" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Ürün Yorumları Gelecek</div>
                 </div>
             </div>
         </div>
@@ -123,7 +120,8 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun1']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun1']; 
+                                                        ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -139,7 +137,8 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun2']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun2']; 
+                                                        ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -155,7 +154,8 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun3']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun3']; 
+                                                        ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
@@ -171,7 +171,8 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-9 px-0">
-                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun4']; ?></a></h2>
+                                <h2><a href="urun.php"><?php // echo $urunSatir['ilgiliurun4']; 
+                                                        ?></a></h2>
                                 <small><a href="kategori.php">Kategori Adı</a></small>
                             </div>
                             <div class="col-3 text-right px-0">
