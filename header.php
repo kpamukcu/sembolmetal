@@ -15,7 +15,7 @@ require_once('baglan.php');
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 
   <link rel="icon" href="img/sembol-metal-icon.ico" type="image/x-icon" />
 
@@ -28,7 +28,7 @@ require_once('baglan.php');
   <header id="header" class="bg-dark">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-md-10">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="index.php"><img src="img/sembol-metal-logo-beyaz-156x105.webp" alt="Sembol Metal Logo" class="w-25"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,6 +73,9 @@ require_once('baglan.php');
               </ul>
             </div>
           </nav>
+        </div>
+        <div class="col-md-2 my-auto text-right">
+            <a class="btn btn-warning text-dark" href="iletisim.php">Projem Var</a>
         </div>
       </div>
     </div>
