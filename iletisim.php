@@ -26,7 +26,7 @@
             <div class="col-md-3 col-6">
                 <i class="bi bi-telephone"></i> <br>
                 <span>Telefon</span><br>
-                <a href="tel:+9">0555 555 5555</a>
+                <a href="tel:+905526247035">0552 624 7035</a>
             </div>
             <div class="col-md-3 col-6">
                 <i class="bi bi-envelope-open"></i> <br>
@@ -36,12 +36,12 @@
             <div class="col-md-3 col-6">
                 <i class="bi bi-whatsapp"></i> <br>
                 <span>Whatsapp</span> <br>
-                <a href="https://wa.me/+9">0555 555 5555</a>
+                <a href="https://wa.link/3xtmeu" target="_blank">0552 624 7035</a>
             </div>
             <div class="col-md-3 col-6">
                 <i class="bi bi-geo-alt"></i> <br>
                 <span>Konum</span> <br>
-                <a href="https://goo.gl/maps/ewvZUarYZiZe4uda8" target="_blank">Haritada Gör</a>
+                <a href="https://goo.gl/maps/fpfmF64DMytahiPy6" target="_blank">Haritada Gör</a>
             </div>
         </div>
         <hr>
@@ -118,7 +118,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 px-0">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d752.6852928584018!2d29.161834!3d41.009038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf22ac2499a7%3A0x7cc64062bce575d4!2sYukar%C4%B1%20Dudullu%2C%20Rana%20Sk.%20No%3A9%2C%2034775%20Dudullu%20Osb%2F%C3%9Cmraniye%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1676362982306!5m2!1str!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1505.3609055572604!2d29.1609758!3d41.0094617!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf22b0b01eaf%3A0x3e31aa14151e3607!2zWXVrYXLEsSBEdWR1bGx1LCBBc2zEsSBTay4gTm86MTQsIDM0Nzc1IER1ZHVsbHUgT3NiL8OcbXJhbml5ZS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1693814812504!5m2!1str!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
