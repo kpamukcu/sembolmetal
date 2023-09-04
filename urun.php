@@ -57,7 +57,7 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
             </div>
             <div class="col-md-6">
                 <h1><?php echo $urunSatir['urunadi']; ?></h1>
-                <strong>Fiyat Teklifi Alın <?php // echo $topFiyat;
+                <strong><a href="https://wa.link/3xtmeu">Fiyat Teklifi Alın</a> <?php // echo $topFiyat;
                                             ?> </strong><br>
                 <?php echo $urunSatir['kisaaciklama']; ?>
                 <!-- <form action="basket.php" method="get" class="form-row">
