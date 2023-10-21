@@ -57,9 +57,11 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
             </div>
             <div class="col-md-6">
                 <h1><?php echo $urunSatir['urunadi']; ?></h1>
-                <strong><a href="https://wa.link/3xtmeu">Fiyat Teklifi Alın</a> <?php // echo $topFiyat;
-                                            ?> </strong><br>
                 <?php echo $urunSatir['kisaaciklama']; ?>
+                
+                <?php // echo $topFiyat;
+                                            ?> </strong><br>
+                
                 <!-- <form action="basket.php" method="get" class="form-row">
                     <div class="col-md-2">
                         <div class="form-group">
@@ -73,7 +75,8 @@ $topFiyat = $urunSatir['bazfiyat'] * $maliyetSatir['fiyat6m'];
                     </div>
                 </form> -->
                 <small>S.T.K: <?php echo $urunSatir['stokkodu']; ?></small><br>
-                <small>Kategori: <a href="kategori.php?kat=<?php echo $urunSatir['kategori']; ?>"><?php echo $urunSatir['kategori']; ?></a></small>
+                <small>Kategori: <a href="kategori.php?kat=<?php echo $urunSatir['kategori']; ?>"><?php echo $urunSatir['kategori']; ?></a></small> <br><br>
+                <strong><a href="https://wa.link/3xtmeu" class="btn btn-info">Fiyat Teklifi Alın</a> 
             </div>
         </div>
     </div>
