@@ -1,5 +1,25 @@
   <!-- Whatsapp Sticky Icon Start -->
-  <a href="https://wa.link/3xtmeu" class="float" target="_blank">
+  <!-- <a href="https://wa.link/3xtmeu" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+  </a> -->
+
+  <script>
+    function sendPageLink() {
+      // Sayfanın URL'sini al
+      var pageURL = window.location.href;
+
+      // WhatsApp mesaj metni oluştur
+      var whatsappMessage = "Sayfa linki: " + pageURL;
+
+      // WhatsApp Web açma linki oluştur
+      var whatsappLink = "https://api.whatsapp.com/send?phone=+905526247035&text=" + encodeURIComponent(whatsappMessage);
+
+      // Yeni sekmede WhatsApp Web'i aç
+      window.open(whatsappLink, '_blank');
+    }
+  </script>
+
+  <a href="javascript:void(0);" class="float" target="_blank" onclick="sendPageLink()">
     <i class="fa fa-whatsapp my-float"></i>
   </a>
   <!-- Whatsapp Sticky Icon End -->
