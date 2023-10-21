@@ -73,7 +73,7 @@ require_once('baglan.php');
                   <a class="nav-link" href="iletisim.php">İletişim</a>
                 </li>
                 <li class="nav-item ml-4">
-                  <a class="nav-link btn btn-warning text-dark" href="iletisim.php">Projem Var</a>
+                  <a class="nav-link btn btn-warning text-dark" data-toggle="modal" data-target="#projemVar">Projem Var</a>
                 </li>
               </ul>
             </div>
@@ -83,3 +83,64 @@ require_once('baglan.php');
     </div>
   </header>
   <!-- Header Section End -->
+
+
+  <!-- Projem Var Modal Start -->
+  <div class="modal fade" id="projemVar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="projemVar" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projemVar">Projenizi Gönderin</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" enctype="multipart/form-data" class="form-row">
+            <div class="col-12">
+              <div class="form-group">
+                <input type="text" name="adi" class="form-control" placeholder="Adınız Soyadınız">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="tel" name="telefon" placeholder="Telefon Numaranız" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="email" name="eposta" placeholder="E-Posta Adresiniz" class="form-control">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <textarea name="mesaj" placeholder="Mesajınız" rows="5" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="form-group">
+                <label>Projenizi Yükleyin</label><br>
+                <input type="file" name="proje" required>
+              </div>
+            </div>
+            <div class="col-md-3 my-auto text-right">
+              <input type="submit" value="Gönder" class="btn btn-success" name="projemvar">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Projem Var Modal End -->
+
+  <?php
+
+if(isset($_POST['projemvar'])){
+  $adi = $_POST['adi'];
+  $telefon = $_POST['telefon'];
+  $eposta = $_POST['eposta'];
+  $mesaj = $_POST['mesaj'];
+  $proje = './docs/'.$_FILES['proje']['name'];
+}
+
+  ?>

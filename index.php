@@ -47,55 +47,10 @@ $boxesSatir = $boxes->fetch();
                         <h2><?php echo $boxesSatir['baslik1']; ?></h2>
                         <p><?php echo $boxesSatir['aciklama1']; ?></p><br>
 
-                        <!-- Button trigger modal -->
-                        <a data-toggle="modal" data-target="#staticBackdrop" style="cursor: pointer;"><b>Projenizi Göndermek ve Fiyat Teklifi Almak için Tıklayın</b></a>
+                        <!-- Açılan Modal Headerda-->
+                        <a data-toggle="modal" data-target="#projemVar" style="cursor: pointer;"><b>Projenizi Göndermek ve Fiyat Teklifi Almak için Tıklayın</b></a>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Projenizi Gönderin</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="adi" class="form-control" placeholder="Adınız Soyadınız">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="tel" name="telefon" placeholder="Telefon Numaranız" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="email" name="eposta" placeholder="E-Posta Adresiniz" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <textarea name="mesaj" placeholder="Mesajınız" rows="5" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="form-group">
-                                                    <label>Projenizi Yükleyin</label><br>
-                                                    <input type="file" name="proje" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 my-auto text-right">
-                                                <input type="submit" value="Gönder" class="btn btn-success" name="projemvar">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
